@@ -1,0 +1,15 @@
+*{
+	text-align: center;
+}
+#navbar{
+	padding: 30px;
+}
+#cards {
+	margin: 20px auto;
+	padding: 30px;
+	border-radius: 2%;
+}
+img {
+    width:  150px;
+    height: 150px;
+}
