@@ -1,8 +1,15 @@
 *{
 	text-align: center;
 }
+/*body{
+	background: url(background.jpg);
+	background: cover;
+}*/
 #navbar{
 	padding: 30px;
+}
+a {
+	font-size: 22px !important;
 }
 #cards {
 	margin: 20px auto;
