@@ -4,9 +4,11 @@
 /*body{
 	background: url(background.jpg);
 	background: cover;
+	background-repeat:   no-repeat;
+    background-position: center center ;  
 }*/
 #navbar{
-	padding: 30px;
+	padding: 10px;
 }
 a {
 	font-size: 22px !important;
