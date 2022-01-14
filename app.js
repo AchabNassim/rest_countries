@@ -1,7 +1,8 @@
 let inputF = document.querySelector('#inputF')
 let button = document.querySelector('#search')
 const regions = ["africa","asia","americas","europe","oceania"]
-
+const rand = document.querySelector("#rand")
+let cont = ''
 
 button.addEventListener('click', getData)
 
@@ -44,11 +45,25 @@ function requestApi(inputValue){
 		document.querySelector("#container").innerHTML = result;
 	})
 }
-// let nav = document.querySelector("#navbar")
-// let container = document.querySelector("#container")
 
-// addEventListener("mousemove",changeColor)
+rand.addEventListener("click",randomCon)
 
-// function changeColor(e){
-// 	nav.style.backgroundColor = `rgb(${e.offsetX},${e.offsetY},100)`
-// }
+function randomCon (e){
+	e.preventDefault()
+	let rand = Math.floor(Math.random()*190)
+	let api = `https://restcountries.com/v3.1/all`
+	fetch(api)
+	.then((response) => response.json())
+	.then((data) => {
+			document.querySelector("#container").innerHTML += 
+			`<div class="col-3 card bg-light mb-3" id="cards" style="width: 18rem;"  >
+				<img class="card-img-top" src="${data[rand].flags.png}" alt="card image cap" >
+					<div class="card-body text-dark">
+					<h4 class="card-title text-primary">${data[rand].name.common}</h4>
+					<h6 class="card-title">Capital : ${data[rand].capital}</h6>
+					<p class="card-text text-secondary">Located in ${data[rand].subregion}</strong>, it Has a population of  ${data[rand].population}</p>
+					</div>
+				</div>
+			</div>`
+	})
+}
