@@ -50,7 +50,7 @@ rand.addEventListener("click",randomCon)
 
 function randomCon (e){
 	e.preventDefault()
-	let rand = Math.floor(Math.random()*190)
+	let rand = Math.floor(Math.random()*140)
 	let api = `https://restcountries.com/v3.1/all`
 	fetch(api)
 	.then((response) => response.json())
