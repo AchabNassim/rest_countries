@@ -18,7 +18,6 @@ function requestApi(inputValue){
 			searchByRegion = true;
 		}
 	}
-
 	if(searchByRegion)
 		api = `https://restcountries.com/v3.1/region/${inputValue}`
 	else 
@@ -30,13 +29,13 @@ function requestApi(inputValue){
 		let result = ''
 		data.forEach(function(country){
 			result += 
-			` 
+			`
 			<div class="col-3 card bg-light mb-3" id="cards" style="width: 18rem;"  >
 				<img class="card-img-top" src="${country.flags.png}" alt="card image cap" >
 					<div class="card-body text-dark">
-					<h4 class="card-title">${country.name.common}</h4>
-					<p class="card-text"> Capital : ${country.capital}</p>
-					<p class="card-text"> Has a population of  ${country.population}</p>
+					<h4 class="card-title text-primary">${country.name.common}</h4>
+					<h6 class="card-title">Capital : ${country.capital}</h6>
+					<p class="card-text text-secondary">Located in ${country.subregion}</strong>, it Has a population of  ${country.population}</p>
 					</div>
 				</div>
 			</div>
@@ -45,7 +44,6 @@ function requestApi(inputValue){
 		document.querySelector("#container").innerHTML = result;
 	})
 }
-
 // let nav = document.querySelector("#navbar")
 // let container = document.querySelector("#container")
 
