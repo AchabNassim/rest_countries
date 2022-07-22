@@ -11,6 +11,30 @@ function getData(e){
 	requestApi(inputF.value)
 }
 
+function displayCountries(){
+	let api = "https://restcountries.com/v3.1/all";
+	fetch(api)
+	.then((response) => response.json())
+	.then((data) => {
+		let result = ''
+		data.forEach(function(country){
+			result += 
+			`
+			<div class="col-3 card bg-light mb-3" id="cards" style="width: 18rem;"  >
+				<img class="card-img-top" src="${country.flags.png}" alt="card image cap" >
+					<div class="card-body text-dark">
+					<h4 class="card-title text-primary">${country.name.common}</h4>
+					<h6 class="card-title">Capital : ${country.capital}</h6>
+					<p class="card-text text-secondary">Located in ${country.subregion}</strong>, it Has a population of  ${country.population}</p>
+					</div>
+				</div>
+			</div>
+			`
+		})
+		document.querySelector("#container").innerHTML = result;
+	})
+}
+
 function requestApi(inputValue){
 	var searchByRegion = false;
 	var api = "";
@@ -55,7 +79,7 @@ function randomCon (e){
 	fetch(api)
 	.then((response) => response.json())
 	.then((data) => {
-			document.querySelector("#container").innerHTML += 
+			document.querySelector("#container").innerHTML = 
 			`<div class="col-3 card bg-light mb-3" id="cards" style="width: 18rem;"  >
 				<img class="card-img-top" src="${data[rand].flags.png}" alt="card image cap" >
 					<div class="card-body text-dark">
@@ -67,3 +91,5 @@ function randomCon (e){
 			</div>`
 	})
 }
+
+displayCountries();
