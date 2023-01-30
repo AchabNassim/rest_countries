@@ -1,5 +1,5 @@
-let inputF = document.querySelector('#inputF')
-let button = document.querySelector('#search')
+const inputF = document.querySelector('#inputF')
+const button = document.querySelector('#search')
 const regions = ["africa","asia","americas","europe","oceania"]
 const rand = document.querySelector("#rand")
 let cont = ''
